@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import '../App.css'
 import * as Yup from 'yup';
+import axios from 'axios';
 
 const CreatePost = () => {
 
@@ -12,7 +13,7 @@ const CreatePost = () => {
     };
 
     const validationSchema = Yup.object().shape({
-        title: Yup.string().required(0),
+        title: Yup.string().required(),
         postText: Yup.string().required(),
         username: Yup.string()
             .min(3, 'Username must be at least 3 characters long')
@@ -21,7 +22,10 @@ const CreatePost = () => {
     });
 
     const onSubmit = (data) => {
-        console.log(data);
+        axios.post("http://localhost:3001/posts", data)
+        .then((response) => {
+            console.log("A post was made.");
+        });
     };
 
   return (
