@@ -1,25 +1,51 @@
 import React from 'react'
-import { Formik, Form, Field, ErrorMessages } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import '../App.css'
+import * as Yup from 'yup';
 
 const CreatePost = () => {
+
+    const initialValues = {
+        title: "",
+        postText: "",
+        username: ""
+    };
+
+    const validationSchema = Yup.object().shape({
+        title: Yup.string().required(0),
+        postText: Yup.string().required(),
+        username: Yup.string()
+            .min(3, 'Username must be at least 3 characters long')
+            .max(15, 'Username must be at most 15 characters long')
+            .required(),
+    });
+
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
   return (
     <div className='createPostPage'>
-        <Formik>
+        <Formik initialValues={initialValues} 
+            onSubmit={onSubmit} 
+            validationSchema={validationSchema}>
             <Form className='formContainer'>
                 <label>Title: </label>
+                <ErrorMessage name="title" component="span"/>
                 <Field 
                     id="inputCreatePost" 
                     name="title" 
                     placeholder="(Ex. Title...)"
                 />
                 <label>Post: </label>
+                <ErrorMessage name="postText" component="span"/>
                 <Field 
                     id="inputCreatePost" 
                     name="postText" 
                     placeholder="(Ex. Post...)"
                 />
                 <label>Username: </label>
+                <ErrorMessage name="username" component="span"/>
                 <Field 
                     id="inputCreatePost" 
                     name="username" 
