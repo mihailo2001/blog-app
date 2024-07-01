@@ -8,8 +8,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Link to="/createpost"> Create A Post </Link>
-        <Link to="/"> Homepage </Link>
+        <div className='navbar'>
+          <Link to="/createpost"> Create A Post </Link>
+          <Link to="/"> Homepage </Link>
+        </div>
         <Routes>
           <Route path="/" exact element={<Home/>}/>
           <Route path="/createpost" exact element={<CreatePost/>}/>
