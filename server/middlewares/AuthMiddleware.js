@@ -8,6 +8,7 @@ const validateToken = (req, res, next) => {
     try{
         
         const validToken = verify(accessToken, "randomstring");
+        req.user = validToken;
         if(validToken) return next();
 
     } catch(err) {
