@@ -40,21 +40,21 @@ const CreatePost = () => {
                 <label>Title: </label>
                 <ErrorMessage name="title" component="span"/>
                 <Field 
-                    id="inputCreatePost" 
+                    className="inputCreatePost" 
                     name="title" 
                     placeholder="(Ex. Title...)"
                 />
                 <label>Post: </label>
                 <ErrorMessage name="postText" component="span"/>
                 <Field 
-                    id="inputCreatePost" 
+                    className="inputCreatePost" 
                     name="postText" 
                     placeholder="(Ex. Post...)"
                 />
                 <label>Username: </label>
                 <ErrorMessage name="username" component="span"/>
                 <Field 
-                    id="inputCreatePost" 
+                    className="inputCreatePost" 
                     name="username" 
                     placeholder="(Ex. John123...)"
                 />
