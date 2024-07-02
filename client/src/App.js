@@ -38,7 +38,11 @@ function App() {
 
   const logout = () => {
     localStorage.removeItem("accessToken");
-    setAuthState({...authState, status: false});
+    setAuthState({
+      username: "", 
+      id: 0, 
+      status: false
+    });
   }
 
   return (
@@ -56,7 +60,7 @@ function App() {
             ) : (
               <button onClick={logout}> Logout </button>
             )}
-            
+            <h1>{authState.username}</h1>
           </div>
           <Routes>
             <Route path="/" exact element={<Home/>}/>

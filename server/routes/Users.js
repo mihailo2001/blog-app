@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
         "randomstring"
     );
 
-    res.json(accessToken);
+    res.json({token: accessToken, username: user.username, id: user.id});
 });
 
 router.get('/auth', validateToken, (req, res) => {
