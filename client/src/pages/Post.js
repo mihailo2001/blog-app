@@ -41,7 +41,11 @@ const Post = () => {
           console.log(response.data.error);
         }
         else {
-          const commentToAdd = {commentBody: newComment, username: response.data.username, id: response.data.id};
+          const commentToAdd = {
+            commentBody: newComment, 
+            username: response.data.username, 
+            id: response.data.id
+          };
           setComments([...comments, commentToAdd]);
           setNewComment("");
         }
@@ -57,7 +61,7 @@ const Post = () => {
     })
     .then(() => {
       setComments(comments.filter((val) => {
-        return val.id != id;
+        return val.id !== id;
       }));
     });
   }
