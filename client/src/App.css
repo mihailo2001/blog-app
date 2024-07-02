@@ -118,6 +118,12 @@ span {
   color: white;
 }
 
+.navbar button {
+  width: 130px;
+  height: 40px;
+  cursor: pointer;
+}
+
 .postPage {
   display: flex;
   flex-direction: row;
