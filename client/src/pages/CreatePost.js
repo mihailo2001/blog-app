@@ -14,21 +14,16 @@ const CreatePost = () => {
     const initialValues = {
         title: "",
         postText: "",
-        //username: ""
     };
 
     useEffect(() => {
-        if (!authState.status) {
+        if (!localStorage.getItem("accessToken")) {
             navigate('/login');
         }
     }, []);
     const validationSchema = Yup.object().shape({
         title: Yup.string().required(),
         postText: Yup.string().required(),
-        /*username: Yup.string()
-            .min(3, 'Username must be at least 3 characters long')
-            .max(15, 'Username must be at most 15 characters long')
-            .required(),*/
     });
 
     const onSubmit = (data) => {

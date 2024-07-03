@@ -18,7 +18,7 @@ function Home() {
     };
 
     useEffect(() => {
-        if(!authState.status){
+        if(!localStorage.getItem("accessToken")){
             navigate('/login');
         } else {
             axios
